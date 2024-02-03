@@ -1,2 +1,2 @@
-# IMGEP
-Open-source code for Intrinsically Motivated Goal Exploration Processes
+# G2-hierarchical_learning_tool-use (p4)
+
