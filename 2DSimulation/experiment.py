@@ -176,18 +176,20 @@ class Experiment(object):
         
     def run(self, iterations=100000, profile=False, print_logs=False):
         
+        plt.ion()  # Activate interactive mode at the beginning of the run method
+
         if profile:
             cp = cProfile.Profile()
             cp.enable()
     
-        t = time.clock()
+        t = time.perf_counter()
         while self.i < iterations:
             if print_logs:
                 # Print number of iterations up to now:
                 if self.i - self.last_print > 1000:
                     self.last_print = 1000 * (self.i // 1000)
                     print("\nIteration:", self.i)
-                    print("Time:", int(10.*(time.clock() - t)) / 10.)
+                    print("Time:", int(10.*(time.perf_counter() - t)) / 10.)
                     print("Average steps", int(10.*self.avg_steps) / 10.)
                     print("n_stick1_moved", self.environment.n_stick1_moved - self.n_stick1_moved)
                     print("n_stick2_moved", self.environment.n_stick2_moved - self.n_stick2_moved)
@@ -203,7 +205,7 @@ class Experiment(object):
                             if mid in self.learning_modules:
                                 print("Interest of module", mid, ":", int(1000.*self.learning_modules[mid].interest_model.current_interest) / 1000.)
         
-                    t = time.clock()
+                    t = time.perf_counter()
     
             # Choose the babbling module (probabilities proportional to interests, with epsilon of random choice):
             if self.condition == "RMB":
@@ -247,9 +249,11 @@ class Experiment(object):
                     m = babbling_module.inverse(sg, explore=False)
                     ms_array, steps = self.execute_perceive(m)
                     babbling_module.update_im(m, np.concatenate(ms_array[:,babbling_module.s_space]))
-    
-    
-    
+
+            # Example place to render your environment periodically
+            if self.i % 100 == 0:  # Adjust the frequency as needed
+                self.environment.render()
+                plt.pause(0.001)  # Short pause to allow the GUI to update
     
         if profile:
             cp.disable()

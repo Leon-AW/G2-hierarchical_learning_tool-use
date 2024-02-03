@@ -50,7 +50,7 @@ xp = Experiment(seed=seed,
                 end_point=end_point,
                 distractors=distractors)
 
-xp.run(iterations=iterations, print_logs=False)
+xp.run(iterations=iterations, print_logs=True)
 
 
 filename = "-".join([str(arg) for arg in (seed,
