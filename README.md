@@ -1,6 +1,9 @@
 # G2-hierarchical_learning_tool-use (p4)
 
-This project simulates a 2D environment where robotic arm tools interact with various objects. The simulation includes elements like grip arms, sticks, magnets, and more, designed to explore motor skill learning and tool use in a controlled setting.
+This project simulates a 2D environment where robotic arm tools interact with various objects. The simulation includes elements like grip arms, sticks, magnets, and more, designed to explore intrinsic motivated learning and tool use in a controlled setting.
+
+The original Code came from:
+https://github.com/sebastien-forestier/IMGEP
 
 ## Installation
 
