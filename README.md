@@ -56,6 +56,7 @@ If you don't get any errors, explauto is successfully installed in your environm
 ```bash
 pip3 install 'setuptools<58.0.0'
 ```
+
 Then, try installing explauto again:
 
 ```bash
@@ -76,6 +77,7 @@ Navigate to the project directory and execute the main script:
 cd path/to/2D_Simulated_Tool-Use_Environment/IMGEP/2DSimulation
 python3 run.py <log_dir> <seed> <distractors> <optim_explo> <end_point> <condition> <iterations>
 ```
+
 ```markdown
 <log_dir>: Directory to write log files.
 <seed>: Seed for pseudo-random number generation.
@@ -84,6 +86,8 @@ python3 run.py <log_dir> <seed> <distractors> <optim_explo> <end_point> <conditi
 <end_point>: Goal representation as an endpoint (True or False).
 <condition>: Experimental condition (rmb, SGS, FC, FRGB, RMB, or AMB).
 <iterations>: Number of iterations to run.
+<plt_pause>: pause between each plot/render. Standard is 0.05 (50 ms). For faster run take 0.001 and for slower run a value like 0.1
+<renderEveryXIteration> render environment every X iteration. Standard is 1 (Integer) so every iteration is rendered. Putting in a high value runs the simulation way faster but leads to many frames which get dropped.
 ```
 
 Example:
@@ -91,6 +95,3 @@ Example:
 ```bash
 python3 run.py ./experiment_logs 42 both full True RMB 1000
 ```
-
-
-
