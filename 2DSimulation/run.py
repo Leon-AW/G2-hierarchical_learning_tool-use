@@ -35,9 +35,20 @@ explo_noise = 0.05
 rmb_prop = 0.1
 
 # Number of exploration iteration for each exploitation iteration
-n_explore = 4 
+n_explore = 4
 
+# Check if plt_pause and renderEveryXIteration parameters are provided, otherwise set default values
+if len(sys.argv) > 8:
+    # plt.pause(0.05) = 50ms pause between each plot
+    plt_pause = float(sys.argv[8])
+else:
+    plt_pause = 0.05  # Default value, 50ms pause between each plot
 
+if len(sys.argv) > 9:
+    # render environment periodically e.g. every 100 iterations (standard is every iteration)
+    renderEveryXIteration = int(sys.argv[9])
+else:
+    renderEveryXIteration = 1  # Default value, render environment every iteration
 
 
 
@@ -50,7 +61,9 @@ xp = Experiment(seed=seed,
                 end_point=end_point,
                 distractors=distractors)
 
-xp.run(iterations=iterations, print_logs=True)
+print(plt_pause, renderEveryXIteration)
+
+xp.run(iterations=iterations, print_logs=True, plt_pause=plt_pause, renderEveryXIteration=renderEveryXIteration)
 
 
 filename = "-".join([str(arg) for arg in (seed,

@@ -174,9 +174,9 @@ class Experiment(object):
 
 
         
-    def run(self, iterations=100000, profile=False, print_logs=False):
+    def run(self, iterations=100000, profile=False, print_logs=False, plt_pause=0.05, renderEveryXIteration=1):
         
-        plt.ion()  # Activate interactive mode at the beginning of the run method
+        plt.ion()  # Interactive mode on
 
         if profile:
             cp = cProfile.Profile()
@@ -251,9 +251,13 @@ class Experiment(object):
                     babbling_module.update_im(m, np.concatenate(ms_array[:,babbling_module.s_space]))
 
             # Example place to render your environment periodically
-            if self.i % 100 == 0:  # Adjust the frequency as needed
+            if renderEveryXIteration > 1:
+                if self.i % renderEveryXIteration == 0:  # Adjust the frequency as needed
+                    self.environment.render()
+                    plt.pause(plt_pause)  # Short pause to allow the GUI to update
+            else:
                 self.environment.render()
-                plt.pause(0.033)  # Short pause to allow the GUI to update
+                plt.pause(plt_pause)
     
         if profile:
             cp.disable()
