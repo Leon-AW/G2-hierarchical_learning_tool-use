@@ -253,7 +253,7 @@ class Experiment(object):
             # Example place to render your environment periodically
             if self.i % 100 == 0:  # Adjust the frequency as needed
                 self.environment.render()
-                plt.pause(0.001)  # Short pause to allow the GUI to update
+                plt.pause(0.033)  # Short pause to allow the GUI to update
     
         if profile:
             cp.disable()
