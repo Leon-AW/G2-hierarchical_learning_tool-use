@@ -51,7 +51,7 @@ python -c "import explauto"
 
 If you don't get any errors, explauto is successfully installed in your environment, and you're ready to proceed with your work.
 
-### Troubleshoot potential Error: Requirements should be satisfied by a PEP 517 installer.
+### Troubleshoot potential Error "Requirements should be satisfied by a PEP 517 installer".
 
 ```bash
 pip3 install 'setuptools<58.0.0'
