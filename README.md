@@ -93,5 +93,5 @@ python3 run.py <log_dir> <seed> <distractors> <optim_explo> <end_point> <conditi
 Example:
 
 ```bash
-python3 run.py ./experiment_logs 42 both full True RMB 1000
+python3 run.py ./experiment_logs 42 both full True RMB 10000
 ```
