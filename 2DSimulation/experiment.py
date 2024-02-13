@@ -189,14 +189,14 @@ class Experiment(object):
                 if self.i - self.last_print > 1000:
                     self.last_print = 1000 * (self.i // 1000)
                     print("\nIteration:", self.i)
-                    # print("Time:", int(10.*(time.perf_counter() - t)) / 10.)
-                    # print("Average steps", int(10.*self.avg_steps) / 10.)
-                    allMovements = self.environment.n_stick1_moved - self.n_stick1_moved + self.environment.n_stick2_moved - self.n_stick2_moved + self.environment.n_obj1_moved - self.n_obj1_moved + self.environment.n_obj2_moved - self.n_obj2_moved
-                    print("Movements:", allMovements)
-                    # print("n_stick1_moved", self.environment.n_stick1_moved - self.n_stick1_moved)
-                    # print("n_stick2_moved", self.environment.n_stick2_moved - self.n_stick2_moved)
-                    # print("n_obj1_moved", self.environment.n_obj1_moved - self.n_obj1_moved)
-                    # print("n_obj2_moved", self.environment.n_obj2_moved - self.n_obj2_moved)
+                    print("Time:", int(10.*(time.perf_counter() - t)) / 10.)
+                    print("Average steps", int(10.*self.avg_steps) / 10.)
+                    # allMovements = self.environment.n_stick1_moved - self.n_stick1_moved + self.environment.n_stick2_moved - self.n_stick2_moved + self.environment.n_obj1_moved - self.n_obj1_moved + self.environment.n_obj2_moved - self.n_obj2_moved
+                    # print("Movements:", allMovements)
+                    print("n_stick1_moved", self.environment.n_stick1_moved - self.n_stick1_moved)
+                    print("n_stick2_moved", self.environment.n_stick2_moved - self.n_stick2_moved)
+                    print("n_obj1_moved", self.environment.n_obj1_moved - self.n_obj1_moved)
+                    print("n_obj2_moved", self.environment.n_obj2_moved - self.n_obj2_moved)
                     self.n_stick1_moved = self.environment.n_stick1_moved
                     self.n_stick2_moved = self.environment.n_stick2_moved
                     self.n_obj1_moved = self.environment.n_obj1_moved
