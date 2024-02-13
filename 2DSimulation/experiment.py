@@ -202,12 +202,12 @@ class Experiment(object):
                     self.n_obj1_moved = self.environment.n_obj1_moved
                     self.n_obj2_moved = self.environment.n_obj2_moved
         
-                    if self.condition == "AMB":
-                        for mid in ["mod1", "mod2", "mod3", "mod4", "mod7", "mod10"]:
-                            if mid in self.learning_modules:
-                                print("Interest of module", mid, ":", int(1000.*self.learning_modules[mid].interest_model.current_interest) / 1000.)
+                    # if self.condition == "AMB":
+                    #     for mid in ["mod1", "mod2", "mod3", "mod4", "mod7", "mod10"]:
+                    #         if mid in self.learning_modules:
+                    #             print("Interest of module", mid, ":", int(1000.*self.learning_modules[mid].interest_model.current_interest) / 1000.)
         
-                    t = time.perf_counter()
+                    # t = time.perf_counter()
     
             # Choose the babbling module (probabilities proportional to interests, with epsilon of random choice):
             if self.condition == "RMB":
